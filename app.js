@@ -31,12 +31,12 @@ app.get("/pizzas", (req, res, next) => {
   const pizzasArr = [
     {
       title: "Pizza Margarita",
-      price: 12,
+      price: "12.95€",
       imageFile: "pizza-margarita.jpg",
     },
     {
       title: "Veggie Pizza",
-      price: 15,
+      price: "18.95€",
       imageFile: "pizza-veggie.jpg",
     },
     {
@@ -45,7 +45,11 @@ app.get("/pizzas", (req, res, next) => {
     },
   ];
 
-  res.render("menu", pizzasArr);
+  const data = {
+    pizzas: pizzasArr,
+  };
+
+  res.render("menu", data);
 });
 
 app.get("/pizzas/margarita", (req, res, next) => {
